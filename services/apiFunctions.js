@@ -39,6 +39,7 @@ async function create(data) {
 
 //function to delete data
 async function remove(id) {
+  //TODO: SQL-STATEMENT
   const result = await db.query(`DELETE FROM data WHERE id=${id}`);
 
   let message = "Error in deleting data";
