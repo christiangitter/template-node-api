@@ -4,12 +4,22 @@ const functions = require("../services/apiFunctions");
 
 /* GET all the Data */
 router.get("/", async function (req, res, next) {
-    try {
-        res.json(await functions.getMultiple(req.query.page));
-    } catch (err) {
-        console.error(`Error while getting functions `, err.message);
-        next(err);
-    }
+  try {
+    res.json(await functions.getMultiple(req.query.page));
+  } catch (err) {
+    console.error(`Error while getting functions `, err.message);
+    next(err);
+  }
+});
+
+/* POST Data */
+router.post("/", async function (req, res, next) {
+  try {
+    res.json(await functions.create(req.body));
+  } catch (err) {
+    console.error(`Error while creating data`, err.message);
+    next(err);
+  }
 });
 
 module.exports = router;
