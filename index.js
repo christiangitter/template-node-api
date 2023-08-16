@@ -14,7 +14,8 @@ app.get("/", (req, res) => {
   res.json({ message: "ok" });
 });
 
-//for POST -> we need to fill in the information in the body
+// for POST -> we need to fill in the information in the body
+// for DELETE -> we need to type in the id in the url (e.g. localhost:3000/all/1)
 app.use("/all", apiRouter);
 
 /* Error handler middleware */
