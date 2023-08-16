@@ -1,13 +1,13 @@
+require("dotenv").config();
 const config = {
-    db: {
-        host: "HOST",
-        user: "USER",
-        password: "PASSWORD",
-        database: "DATABASE",
-        connectTimeout: 60000,
-        //MySQL default port is 3306
-        //port: 3306,
-    },
-    listPerPage: 10,
+  db: {
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    database: process.env.DATABASE,
+    connectTimeout: 60000,
+    port: process.env.PORT,
+  },
+  listPerPage: 10,
 };
 module.exports = config;
