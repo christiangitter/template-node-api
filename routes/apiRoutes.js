@@ -22,4 +22,14 @@ router.post("/", async function (req, res, next) {
   }
 });
 
+/* DELETE Data */
+router.delete("/:id", async function (req, res, next) {
+  try {
+    res.json(await functions.remove(req.params.id));
+  } catch (err) {
+    console.error(`Error while deleting data`, err.message);
+    next(err);
+  }
+});
+
 module.exports = router;

@@ -28,10 +28,23 @@ async function create(data) {
       ('${data.name}', ${data.age})`
   );
 
-  let message = "Error in creating programming language";
+  let message = "Error in creating data";
 
   if (result.affectedRows) {
-    message = "Programming language created successfully";
+    message = "Data created successfully";
+  }
+
+  return { message };
+}
+
+//function to delete data
+async function remove(id) {
+  const result = await db.query(`DELETE FROM data WHERE id=${id}`);
+
+  let message = "Error in deleting data";
+
+  if (result.affectedRows) {
+    message = "Data deleted successfully";
   }
 
   return { message };
@@ -40,4 +53,5 @@ async function create(data) {
 module.exports = {
   getMultiple,
   create,
+  remove,
 };
